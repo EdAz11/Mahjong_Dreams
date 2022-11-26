@@ -2,6 +2,13 @@ import Classes.player as p
 import Classes.wall as w
 import Classes.tile as t
 
+from kivy.app import App
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.label import Label
+from kivy.uix.image import Image
+from kivy.uix.button import Button
+from kivy.uix.textinput import TextInput
+
 completed_melds=[]
 temp_melds=[]
 
@@ -124,6 +131,16 @@ def check_tempai(hand):
     
     
     return False
+
+class OpenWindow(App):
+    def build(self):
+        self.window = GridLayout()
+        #add widgets to window
+
+        return self.window
+
+if __name__ == "__main__":
+    OpenWindow().run()
 
 
 walls, player, tile_drawn = start_game()
