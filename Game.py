@@ -3,6 +3,7 @@ import Classes.wall as w
 import Classes.tile as t
 
 from kivy.app import App
+from kivy.uix.widget import Widget
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
 from kivy.uix.image import Image
@@ -132,15 +133,18 @@ def check_tempai(hand):
     
     return False
 
-class OpenWindow(App):
+class MahjTrainer(Widget):
+    pass
+
+class MahjTrainerApp(App):
     def build(self):
-        self.window = GridLayout()
+        #self.window = GridLayout()
         #add widgets to window
 
-        return self.window
+        return MahjTrainer()
 
 if __name__ == "__main__":
-    OpenWindow().run()
+    MahjTrainerApp().run()
 
 
 walls, player, tile_drawn = start_game()

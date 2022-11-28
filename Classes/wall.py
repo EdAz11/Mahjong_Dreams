@@ -1,4 +1,4 @@
-import tile as t
+import Classes.tile as t
 import random
 class Wall:
 
