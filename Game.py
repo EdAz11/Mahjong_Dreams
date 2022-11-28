@@ -2,14 +2,6 @@ import Classes.player as p
 import Classes.wall as w
 import Classes.tile as t
 
-from kivy.app import App
-from kivy.uix.widget import Widget
-from kivy.uix.gridlayout import GridLayout
-from kivy.uix.label import Label
-from kivy.uix.image import Image
-from kivy.uix.button import Button
-from kivy.uix.textinput import TextInput
-
 completed_melds=[]
 temp_melds=[]
 
@@ -29,17 +21,23 @@ def discard(tile_index):
     tile_drawn= walls.draw()
 
 def appendPop(hand, secnd_ind=0, last_ind=0):
-    completed_melds.append([t.Tile(hand[0].suit, hand[0].value),
+    melds=[]
+    melds.append([t.Tile(hand[0].suit, hand[0].value),
                                     t.Tile(hand[secnd_ind].suit, hand[secnd_ind].value),
                                     t.Tile(hand[last_ind].suit, hand[last_ind].value)])
+    
+    if melds not in completed_melds:
+        completed_melds.append(melds)
+
     hand.pop(last_ind)
     hand.pop(secnd_ind)
     hand.pop(0)
 
-    return hand, meld
+    return hand
 
 
 def check_tempai(hand):
+    comp_melds =[]
     temp_hand= hand
     check_meld=[]
     index = 0
@@ -133,18 +131,3 @@ def check_tempai(hand):
     
     return False
 
-class MahjTrainer(Widget):
-    pass
-
-class MahjTrainerApp(App):
-    def build(self):
-        #self.window = GridLayout()
-        #add widgets to window
-
-        return MahjTrainer()
-
-if __name__ == "__main__":
-    MahjTrainerApp().run()
-
-
-walls, player, tile_drawn = start_game()
