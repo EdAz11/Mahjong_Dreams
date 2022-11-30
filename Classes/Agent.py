@@ -171,3 +171,6 @@ def discard_tile(self,key):
         return 
     else:
         self.agent_hand[key]-=1
+
+def action(self, state):
+    pass
