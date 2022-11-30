@@ -4,19 +4,21 @@ import Classes.tile as t
 
 completed_melds=[]
 temp_melds=[]
+walls = w.Wall()
 
 def start_game():
-    walls = w.Wall
-    player = p.Player()
+    # walls = w.Wall()
+    # player = p.Player()
     
     tile_drawn = walls.draw()
 
-    return walls, player, tile_drawn
+    #return walls, player, tile_drawn
+    return tile_drawn()
 
-def discard(tile_index):
+def discard(self,tile_index):
     if tile_index>=0:
-        player.discard(tile_index)
-        player.tile_to_hand(tile_drawn)
+        self.player.discard(tile_index)
+        self.player.tile_to_hand(tile_drawn)
     
     tile_drawn= walls.draw()
 
@@ -37,7 +39,6 @@ def appendPop(hand, secnd_ind=0, last_ind=0):
 
 
 def check_tempai(hand):
-    comp_melds =[]
     temp_hand= hand
     check_meld=[]
     index = 0
@@ -131,3 +132,22 @@ def check_tempai(hand):
     
     return False
 
+def draw_initial_hand(self):
+    while len(self.player.hand) !=13:
+        draw=self.walls.draw()
+        self.player.hand.append(draw)   
+
+
+
+def start_ai_game(self):
+    return
+
+
+def game_loop_train(self):
+    draw_initial_hand()
+
+    while len(self.walls.live) >0:
+
+        return
+        
+    
