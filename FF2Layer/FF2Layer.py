@@ -98,6 +98,8 @@ class FF2Layer():
         result = self.forwardPropagation(neuronTrainingSet)
         self.backPropagation(neuronTrainingSet)
 
+        return result
+
     def saveWeights(self):
 
         pickle.dump(self.weights1, open('/weights1.p', 'wb'))

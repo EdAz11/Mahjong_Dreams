@@ -10,7 +10,7 @@ class NetworkInterface():
     n_entries = 15
     n_exits = 14
 
-    def __init__(self, hand, drawn_tile, available_tiles, trainmode=0):
+    def __init__(self, hand, drawn_tile, available_tiles, trainmode=True):
         self.network = ff2.FF2Layer(self.n_entries, 6, self.n_exits)
 
         self.player = pl.Player(hand, drawn_tile)
@@ -28,7 +28,6 @@ class NetworkInterface():
 
         neuron = neun.Neuron(self.known_tiles, recomendedAction)
 
-        #TODO make example neuros for simple cases (ie. 2->2 or sequence situations)
         exampleSent= self.searchExample()
 
         if self.mode:
